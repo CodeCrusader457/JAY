@@ -11,3 +11,7 @@
 
 pkg/
 src/
+__pycache__/
+*.wav
+keys.py
+.venv/

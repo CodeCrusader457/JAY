@@ -25,8 +25,12 @@ jobs:
     uses: actions/setup-python@v2
     with:
      python-version: 3.9
-  - run: pip install -r requirements.txt
-  - run: pip install gdown
-  - run: gdown 14JzEMo8ScLinvBkl7QEvYvFEi7EBXNAt
-  - run: ./run.py -f=.github/examples/face.jpg -t=.github/examples/target.mp4 -o=.github/examples/output.mp4
-  - run: ffmpeg -i .github/examples/snapshot.mp4 -i .github/examples/output.mp4 -filter_complex "psnr" -f null -
+module.exports = {
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss/nesting"),
+    require("tailwindcss")("./src/components/tailwind.config.js"),
+    require("postcss-hover-media-feature"),
+  ],
+}
+

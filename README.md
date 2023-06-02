@@ -1,2 +1,1 @@
-# JAY
-As a language model, JAY generates content by learning from a vast amount of text. However, it does not possess the ability to comprehend or express personal opinions or value judgments. 
+This is a simple library of all the data loaders / readers that have been created by the community. The goal is to make it extremely easy to connect large language models to a large variety of knowledge sources. As a language model, JAY generates content by learning from a vast amount of text. However, it does not possess the ability to comprehend or express personal opinions or value judgments. 

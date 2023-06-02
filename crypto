@@ -1,0 +1,41 @@
+import whisper
+import torch
+import wave
+import os
+import threading
+from tempfile import NamedTemporaryFile
+import custom_speech_recognition as sr
+import io
+from datetime import timedelta
+import pyaudiowpatch as pyaudio
+from heapq import merge
+
+PHRASE_TIMEOUT = 3.05
+
+MAX_PHRASES = 10
+
+class AudioTranscriber:
+    def __init__(self, mic_source, speaker_source, model):
+        self.transcript_data = {"You": [], "Speaker": []}
+        self.transcript_changed_event = threading.Event()
+        self.audio_model = model
+        self.audio_sources = {
+            "You": {
+                "sample_rate": mic_source.SAMPLE_RATE,
+                "sample_width": mic_source.SAMPLE_WIDTH,
+                "channels": mic_source.channels,
+                "last_sample": bytes(),
+                "last_spoken": None,
+                "new_phrase": True,
+                "process_data_func": self.process_mic_data
+            },
+            "Speaker": {
+                "sample_rate": speaker_source.SAMPLE_RATE,
+                "sample_width": speaker_source.SAMPLE_WIDTH,
+                "channels": speaker_source.channels,
+                "last_sample": bytes(),
+                "last_spoken": None,
+                "new_phrase": True,
+                "process_data_func": self.process_speaker_data
+            }
+        }

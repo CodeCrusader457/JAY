@@ -19,23 +19,14 @@ class AudioTranscriber:
         self.transcript_data = {"You": [], "Speaker": []}
         self.transcript_changed_event = threading.Event()
         self.audio_model = model
-        self.audio_sources = {
-            "You": {
-                "sample_rate": mic_source.SAMPLE_RATE,
-                "sample_width": mic_source.SAMPLE_WIDTH,
-                "channels": mic_source.channels,
-                "last_sample": bytes(),
-                "last_spoken": None,
-                "new_phrase": True,
-                "process_data_func": self.process_mic_data
-            },
-            "Speaker": {
-                "sample_rate": speaker_source.SAMPLE_RATE,
-                "sample_width": speaker_source.SAMPLE_WIDTH,
-                "channels": speaker_source.channels,
-                "last_sample": bytes(),
-                "last_spoken": None,
-                "new_phrase": True,
-                "process_data_func": self.process_speaker_data
-            }
-        }
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "react-devtool": "react-devtools"
+  },

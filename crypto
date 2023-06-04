@@ -20,13 +20,3 @@ class AudioTranscriber:
         self.transcript_changed_event = threading.Event()
         self.audio_model = model
 {
-  "main": "node_modules/expo/AppEntry.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject",
-    "react-devtool": "react-devtools"
-  },

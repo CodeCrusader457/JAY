@@ -4,7 +4,6 @@ def check_command(command, message):
     if not shutil.which(command):
         print(message)
         sys.exit(1)
-
 def run_npm_commands():
     os.chdir("gui")
     try:
